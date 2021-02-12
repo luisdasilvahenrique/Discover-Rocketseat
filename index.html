@@ -1,145 +1,169 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" href="./images/forma-de-pagamento.png" />
-    <link rel="stylesheet" href="./style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400&display=swap" rel="stylesheet">
-    <title>dev.finance$</title>
-  </head>
-  <body">
-    <header>
-      <img src="./assets/logo.svg" alt="Logo Dev Finance">
-    </header>
 
-    <main class="container">
-      <section id="balance">
-        <h2 class="sr-only">Balanço</h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="icon" href="./images/forma-de-pagamento.png" />
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400&display=swap"
+    rel="stylesheet">
+  <title>dev.finance$</title>
+</head>
+<body">
+  <header>
+    <img src="./assets/logo.svg" alt="Logo Dev Finance">
+  </header>
 
-        <div class="card">
-          <h3>
-            
-            <span>
-              Entradas
-            </span>
-             <img src="./assets/income.svg" alt="Image de entrada">
+  <main class="container">
+    <section id="balance">
+      <h2 class="sr-only">Balanço</h2>
 
-          </h3>
-          <p>R$ 5.000,00</p>
-        </div>
+      <div class="card">
+        <h3>
 
-        <div class="card">
-          <h3>
+          <span>
+            Entradas
+          </span>
+          <img src="./assets/income.svg" alt="Image de entrada">
+
+        </h3>
+        <p>R$ 5.000,00</p>
+      </div>
+
+      <div class="card">
+        <h3>
           <span>
             Saídas
           </span>
-           <img src="./assets/expense.svg" alt="Image de saída">
-          </h3>
-          <p>R$ 2.000,00</p>
-        </div>
+          <img src="./assets/expense.svg" alt="Image de saída">
+        </h3>
+        <p>R$ 2.000,00</p>
+      </div>
 
-        <div class="card total">
-          <h3>
+      <div class="card total">
+        <h3>
           <span>
             Total
           </span>
-           <img src="./assets/total.svg" alt="Image de total">
-          </h3>
-          <p>R$ 3.000,00</p>
-        </div>
-      </section>
+          <img src="./assets/total.svg" alt="Image de total">
+        </h3>
+        <p>R$ 3.000,00</p>
+      </div>
+    </section>
 
-      <!--Não está correto aqui -->
-      <a href="#" class="button new">+ nova transação</a>
-      <!--Não está correto aqui -->
-      
-      <section id="transation">
-        
-        <h2 class="sr-only">Transações</h2>
-          <!-- O button new é aqui -->
-        <table id="data-table">
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Valor</th>
-              <th>Data</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class=description>Luz</td>
-              <td class="expense">- R$ 500,00</td>
-              <td class="date">28/01/2021</td>
-              <td>
-                <img src="./assets/minus.svg" alt="Remover transação">
-              </td>  
-            </tr>
-            <tr>
-              <td class=description>Criação website</td>
-              <td class="income">- R$ 5000,00</td>
-              <td>28/01/2021</td>
-              <td>
-                <img src="./assets/minus.svg" alt="Remover transação">
-              </td> 
-            </tr class="date">
-            <tr>
-              <td class=description>Internet</td>
-              <td class="expense">- R$ 200,00</td>
-              <td class="date">28/01/2021</td>
-              <td>
-                <img src="./assets/minus.svg" alt="Remover transação">
-              </td> 
-            </tr>
-          </tbody>
-        </table>
-      </section>
-    </main>
+    <!--Não está correto aqui -->
+    <a href="#"
+    onclick="Modal.open()" 
+    class="button new">+ nova transação</a>
+    <!--Não está correto aqui -->
 
-    <!-- Modal -->
-    <div class="modal-overlay active">
-      <div class="modal">
-        <div class="modal-content">
+    <section id="transation">
 
-          <div id="form">
-            <h2>Nova Transição</h2>
-            <form action="">
-              <div class="input-group">
-                <label 
-                class="sr-only" 
-                for="description">Descrição</label> 
+      <h2 class="sr-only">Transações</h2>
+      <!-- O button new é aqui -->
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th>Descrição</th>
+            <th>Valor</th>
+            <th>Data</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class=description>Luz</td>
+            <td class="expense">- R$ 500,00</td>
+            <td class="date">28/01/2021</td>
+            <td>
+              <img src="./assets/minus.svg" alt="Remover transação">
+            </td>
+          </tr>
+          <tr>
+            <td class=description>Criação website</td>
+            <td class="income">- R$ 5000,00</td>
+            <td>28/01/2021</td>
+            <td>
+              <img src="./assets/minus.svg" alt="Remover transação">
+            </td>
+          </tr class="date">
+          <tr>
+            <td class=description>Internet</td>
+            <td class="expense">- R$ 200,00</td>
+            <td class="date">28/01/2021</td>
+            <td>
+              <img src="./assets/minus.svg" alt="Remover transação">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
 
-                <input 
-                type="text" 
-                id="description" 
-                name="description" 
-                placeholder="Descrição"
-                
-                />
-              </div>
+  <!-- Modal -->
+  <div class="modal-overlay">
+    <div class="modal">
+      <div class="modal-content">
 
-              <div class="input-group">
-                <label 
-                class="sr-only" 
-                for="amount">Descrição</label> 
+        <div id="form">
+          <h2>Nova Transição</h2>
+          <form action="">
+            <div class="input-group">
+              <label class="sr-only" for="description">Descrição</label>
 
-                <input 
-                type="number" 
-                id="amount" 
-                name="amount" 
-                placeholder="Descrição"
-                
-                />
-              </div>
-            </form>
+              <input type="text" id="description" name="description" placeholder="Descrição" />
+            </div>
 
-          </div>
+            <div class="input-group">
+              <label class="sr-only" for="amount">Valor</label>
+
+              <input type="number" step="0.01" id="amount" name="amount" placeholder="0,00" />
+
+              <small class="help-block"> Use o sinal - (negativo) para despesas e , (vírgula para casas decimais)
+              </small>
+
+            </div>
+
+            <div class="input-group">
+              <label class="sr-only" for="date">Data</label>
+
+              <input type="date" id="date" name="date" />
+            </div>
+
+            <div class="input-group actions">
+              <a onclick="Modal.close()" href="" class="button cancel">Cancelar</a>
+              <button type="submit">Salvar</button>
+            </div>
+
+          </form>
+
         </div>
       </div>
     </div>
+  </div>
 
-    <footer><p>dev.finance$</p></footer>
+  <footer>
+    <p>dev.finance$</p>
+  </footer>
+  <script>
+    const Modal = {
+      open(){
+        //abrir modal
+        //ativar a classe active do modal
+        document
+        .querySelector('.modal-overlay')
+        .classList.add('active')
+        },
+      close(){
+          //fechar modal
+          //remover a classe active do modal
+          document
+          .querySelector('.modal-overlay')
+          classList.remove('active')
+        }
+    }
+  </script>
   </body>
 </html>
