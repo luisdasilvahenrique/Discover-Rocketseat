@@ -18,13 +18,13 @@
     const transaction = [{
       id: 1,
       description: 'Luz',
-      amount: -50000,
+      amount: -50012,
       date: "23/01/2021",
     },
     {
       id: 2,
       description: 'Website',
-      amount: -500000,
+      amount: -50003,
       date: "23/01/2021",
     },
     {
@@ -49,13 +49,17 @@
 
     const Transaction = {
       incomes(){
-        //somar as entradas
+        //pegar todas as transações
+        //verificar se a transação é maior que zero
+        //somar a uma váriavel e retornar a variável
+        // 1:23:00
+        return 'Cheguei'
       },
       expenses(){
-        //  somar as saídas
+        return 'Aqui'
       },
       total(){
-        // somar entradas - saídas
+        return 'Discover'
       }
     }
 
@@ -76,24 +80,52 @@
 
           const html = `
           <td class=description>${transaction.description}</td>
-          <td class="${CssClass}">${transaction.amount}</td>
+          <td class="${CssClass}">${amount}</td>
           <td class="date">${transaction.date}</td>
           <td>
             <img src="./assets/minus.svg" alt="Remover transação">
           </td>
           `
           return html
-        }
+      },
+
+      updateBalance() {
+          document
+          .getElementById('incomeDisplay')
+          .innerHTML = Transaction.incomes()
+              
+          document
+          .getElementById('expenseDisplay')
+          .innerHTML = Transaction.expenses()
+          document
+          .getElementById('totalDisplay')
+          .innerHTML = Transaction.total()
+
+      },
+
     }
 
 // formantando moeda
     const Utils = {
       formatCurrency(value){
         const signal  = Number(value) < 0 ? "-" : ""
+      
+        value = String(value).replace(/\D/g, "")
+
+        value = Number(value) / 100
+
+        value = value.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL"
+        })
+
+        return signal + value
       }
     }
 
     transaction.forEach(function(transation){
       DOM.addTransaction(transation)
     })
+
+    DOM.updateBalance()
     
