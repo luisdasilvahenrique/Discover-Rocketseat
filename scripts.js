@@ -15,51 +15,51 @@ const Modal = {
   }
   //teste
 }
-const transaction = [
-  {
-    id: 1,
-    description: 'Luz',
-    amount: -30012,
-    date: "23/01/2021",
-  },
-  {
-    id: 2,
-    description: 'Website',
-    amount: -30003,
-    date: "24/11/2021",
-  },
-  {
-    id: 3,
-    description: 'Internet',
-    amount: -20000,
-    date: "05/03/2021",
-  },
-  {
-    id: 4,
-    description: 'Botijão',
-    amount: 10000,
-    date: "11/11/2021",
-  },
-  {
-    id: 5,
-    description: 'Botijão',
-    amount: 20000,
-    date: "14/06/2021",
-  },
-  {
-    id: 6,
-    description: 'Comida',
-    amount: 60000,
-    date: "01/03/2021",
-  },
 
-]
 // Pode haver erro no "expenses" na saída e soma dos valores
 const Transaction = {
-  all: transaction,
+  all: [
+    {
+      description: 'Luz',
+      amount: -30012,
+      date: "23/01/2021",
+    },
+    {
+      description: 'Website',
+      amount: -30003,
+      date: "24/11/2021",
+    },
+    {
+      description: 'Internet',
+      amount: -20000,
+      date: "05/03/2021",
+    },
+    {
+      description: 'Botijão',
+      amount: 10000,
+      date: "11/11/2021",
+    },
+    {
+      description: 'Botijão',
+      amount: 20000,
+      date: "14/06/2021",
+    },
+    {
+      description: 'Comida',
+      amount: 60000,
+      date: "01/03/2021",
+    },
+  
+  ],
 
   add(transaction) {
     Transaction.all.push(transaction)
+
+    App.reload()
+  },
+
+  remove(index){
+    Transaction.all.splice(index, 1)
 
     App.reload()
   },
@@ -156,6 +156,19 @@ const Utils = {
   }
 }
 
+const Form = {
+  submit(event){
+    event.preventDefault()
+    // 2:05:30 sec
+    // verificar se todas as informações foram preenchidas
+    // Formatar os dados para salvar
+    // salvar
+    // apagar os daodos do form
+    // modal feche
+    // atualizar a aplicação
+  }
+}
+
 const App = {
   init() {
     Transaction.all.forEach(transation => {
@@ -168,15 +181,7 @@ const App = {
   reload() {
     DOM.clearTransaction()
     App.init()
-    //1:45:20
   }
 }
 App.init()
 
-
-Transaction.add({
-  id: 39,
-  description: 'alo',
-  amount: 200,
-  date: '04/10/2021'
-})
