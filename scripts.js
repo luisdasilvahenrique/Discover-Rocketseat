@@ -179,6 +179,7 @@ const Form = {
       }
   },
   formatData(){
+    
       console.log('Formatar dado')
   },
   SaveData(){
