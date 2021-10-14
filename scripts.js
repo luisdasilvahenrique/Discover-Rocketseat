@@ -207,6 +207,7 @@ const Form = {
     Form.description.value = ""
     Form.amount.value = ""
     Form.date.value = ""
+    
   },
   submit(event){
     event.preventDefault()
