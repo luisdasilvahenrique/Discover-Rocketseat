@@ -114,7 +114,9 @@ const DOM = {
           <td class="${CssClass}">${amount}</td>
           <td class="date">${transaction.date}</td>
           <td>
-            <img onclick="Transaction.remove{${index}}" src="./assets/minus.svg" alt="Remover transação">
+            <img onclick="Transaction.remove(${index})" 
+            src="./assets/minus.svg" 
+            alt="Remover transação">
           </td>
           `
     return html
@@ -141,7 +143,7 @@ const DOM = {
 
 // formantando moeda
 const Utils = {
-  formatAmout(value){
+  formatAmount(value){
     value = Number(value) * 100
     
     return value
@@ -193,7 +195,7 @@ const Form = {
   FormatValues(){
     let { description, amount, date } = Form.getValues()
   
-    amount = Utils.formatAmout(amount)
+    amount = Utils.formatAmount(amount)
     date = Utils.formatDate(date)
 
     return {
@@ -241,8 +243,8 @@ const App = {
 
   reload() {
     DOM.clearTransaction()
-    
+    App.init()
   }
 }
-App.init()
+ App.init()
 
