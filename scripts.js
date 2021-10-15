@@ -11,7 +11,7 @@ const Modal = {
     //remover a classe active do modal
     document
       .querySelector('.modal-overlay')
-    classList.remove('active')
+      .classList.remove('active')
   }
   //teste
 }
@@ -98,12 +98,13 @@ const DOM = {
 
   addTransaction(transaction, index) {
     const tr = document.createElement('tr')
-    tr.innerHTML = DOM.innerHTMLTransaction(transaction)
+    tr.innerHTML = DOM.innerHTMLTransaction(transaction, index)
+    tr.dataset.index = index
 
     DOM.transactionContainer.appendChild(tr)
 
   },
-  innerHTMLTransaction(transaction) {
+  innerHTMLTransaction(transaction, index) {
     const CssClass = transaction.amount > 0 ? "income" : "expense"
 
     const amount = Utils.formatCurrency(transaction.amount)
@@ -113,7 +114,7 @@ const DOM = {
           <td class="${CssClass}">${amount}</td>
           <td class="date">${transaction.date}</td>
           <td>
-            <img src="./assets/minus.svg" alt="Remover transação">
+            <img onclick="Transaction.remove{${index}}" src="./assets/minus.svg" alt="Remover transação">
           </td>
           `
     return html
@@ -210,7 +211,9 @@ const Form = {
     
   },
   submit(event){
+    
     event.preventDefault()
+
     try {
     // verificar se todas as informações foram preenchidas
     Form.validateFields()
@@ -218,33 +221,27 @@ const Form = {
     const transaction = Form.FormatValues()
     // salvar
     Transaction.add(transaction)
-    // 
-    Form.SaveTransaction()
     // apagar os daodos do form
     Form.clearFields()
     // modal feche
-    // atualizar a aplicação
+    Modal.close()
     } catch (error) {
       alert(error.message)
     }
-    
-    
    
   }
 }
 
 const App = {
   init() {
-    Transaction.all.forEach(transation => {
-      DOM.addTransaction(transation);
-    })
+    Transaction.all.forEach(DOM.addTransaction)
 
     DOM.updateBalance()
   },
 
   reload() {
     DOM.clearTransaction()
-    App.init()
+    
   }
 }
 App.init()
